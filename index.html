@@ -3,54 +3,7 @@
     <meta charset="UTF-8">
     <title>TravelBuddy</title>
 </head>
-<style>
-    ul{
-        position: fixed;
-        top: 0;
-        width: 100%;
-    }
 
-    ul{
-        list-style-type: none;
-        margin: 0;
-        padding: 0;
-        overflow: hidden;
-        background-color: white;
-    }
-
-    li{
-        display: inline;
-        float: left;
-        border-right: 1px solid #bbb;
-        border-bottom: 1px solid #bbb;
-    }
-
-    a{
-        display: block;
-        padding: 8px;
-        background color: white;
-    }
-
-    li a{
-        display: block;
-        color: black;
-        text-align: center;
-        padding: 14px 16px;
-        text-decoration: none;
-    }
-
-    li a:hover{
-        background-color: GRAY;
-    }
-
-    .active{
-        background-color: GRAY;
-        color: black;
-    }
-
-
-
-</style>
 <body>
 
         <!--navbar links-->
@@ -64,4 +17,35 @@
 
 
 </body>
+
+<script>
+int gasStops = 0;
+int mpg = 0;
+int gasInTank;
+
+  function findMPG = new function (make, model, year)
+  {
+    boolean found = false;
+    // called when 'Find My Car' button hit
+    /*
+     * parse CSV and find the mpg of the car
+     * if car not found, show block that says that
+     * if found, show car's mpg and how many gasStops are needed (best case)
+     * calculate gasStops and update variable
+     * "If this does not seem like your car's mpg, enter manually and hit 'update' (another function)"
+    */
+  }
+
+function manualMPG = new function(entered)
+{
+  mpg = entered;
+  // show car's mpg and how many gasStops are needed (best case)
+  // calculate gasStops and update variable
+}
+  function theGasStops = new function ()
+  {
+    return gasStops;
+  }
+</script>
+
 </html>
