@@ -109,12 +109,43 @@
     <div id="map"></div>
     <script>
       function myMap() {
+
+        var brunchPos = {lat: 36.0001, lng: -119};
+        var faboritPos = {lat: 36.0002, lng: -119};
+
+        var targetElem = document.getElementById('map');
+        var cameraPosition = { zoom: 13, center: faboritPos };
+        var map = new google.maps.Map(targetElem, cameraPosition);
+
+        var marker1 = new google.maps.Marker({ map: map, position: faboritPos });
+        var marker2 = new google.maps.Marker({ map: map, position: brunchPos });
+
+
+
+
+
         var directionsService = new google.maps.DirectionsService();
         var directionsRenderer = new google.maps.DirectionsRenderer();
         var map = new google.maps.Map(document.getElementById('map'), {
           zoom: 7,
           center: {lat: 36, lng: -119.65}
         });
+
+        var input = document.getElementById('searchTextField');
+        //var autocomplete = new google.maps.places.Autocomplete(input);
+        //autocomplete.bindTo('bounds', map);
+
+        // autocomplete.addListener('place_changed', function() {
+        //
+        //   var place = autocomplete.getPlace();
+        //   if (!place.geometry) {
+        //     // User entered the name of a place that was not suggested and
+        //     // pressed the Enter key, or the Place Details request failed.
+        //     window.alert("No details available for input: '" + place.name + "'. Select one of the results.");
+        //     return;
+        //   }
+
+
         directionsRenderer.setMap(map);
 
         var onChangeHandler = function() {
@@ -124,12 +155,6 @@
         document.getElementById('end').addEventListener('change', onChangeHandler);
       }
 
-      var marker = new google.maps.Marker({
-        position:myCenter,
-        icon:"badge badge-secondary"
-      });
-
-marker.setMap(map);
 
       function calculateAndDisplayRoute(directionsService, directionsRenderer) {
         directionsService.route(
@@ -152,6 +177,43 @@ marker.setMap(map);
       <button type="button" class="close" data-dismiss="alert">&times;</button>
       <strong>Alert!</strong> There are some rest stops along your route <a href="#" class="alert-link">-- reroute?</a>
     </div>
+
+    <div class="list-group">
+      <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
+        <div class="d-flex w-100 justify-content-between">
+          <h5 class="mb-1">Gas Stop #1</h5>
+          <small class="text-muted">215 Brown St, Kettleman City, CA $3.50 (183 miles)</small>
+        </div>
+      </a>
+
+      <a href="#" class="list-group-item list-group-item-action flex-column align-items-start active">
+        <div class="d-flex w-100 justify-content-between">
+          <h5 class="mb-1">Gas Stop #2</h5>
+          <small>801 E California Ave & S King St, Bakersfield CA $2.69 (251 miles)</small>
+        </div>
+      </a>
+
+  <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
+    <div class="d-flex w-100 justify-content-between">
+      <h5 class="mb-1">Gas Stop #3</h5>
+      <small class="text-muted">5552 Wheeler Ridge Rd, Arvin, CA $2.79 (265 miles)</small>
+    </div>
+  </a>
+
+  <a href="#" class="list-group-item list-group-item-action flex-column align-items-start active">
+    <div class="d-flex w-100 justify-content-between">
+      <h5 class="mb-1">Gas Stop #4</h5>
+      <small>22917 Lyons Ave, Newhall, CA   $3.69 (352 miles)</small>
+    </div>
+  </a>
+
+  <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
+    <div class="d-flex w-100 justify-content-between">
+      <h5 class="mb-1">Gas Stop #5</h5>
+      <small class="text-muted">501 E Glenoaks Blvd, Glendale, CA $4.35 (376 miles)</small>
+    </div>
+  </a>
+</div>
     </script>
   </body>
 </html>
