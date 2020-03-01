@@ -3,7 +3,7 @@ import java.io.FileReader;
 import java.io.IOException;
 
 public class CarSearcher {
-  
+
 	  public static double findMPG(String make, String model, String year) throws IOException
 	  {
 		  BufferedReader f = new BufferedReader(new FileReader("C:" + "\\\\Users\\Tang\\Desktop\\vehicles.csv"));
@@ -17,7 +17,30 @@ public class CarSearcher {
 	    		// CURRENTLY ONLY RETURNING HIGHWAY MPG
 	    		return Double.parseDouble(info[34]);
 	    	}
+        if (info[46].equals(make))
+        {
+          makeFound = true;
+        }
+        if (info[47].equals(model))
+        {
+          modelFound = true;
+        }
+        if (info[63].equals(year))
+        {
+          yearFound = true;
+        }
 	    }
-	    return -1;
+      if (!makeFound)
+      {
+        return -1;
+      }
+      if (!modelFound)
+      {
+        return -2;
+      }
+      if (!yearFound)
+      {
+        return -3;
+      }
 	  }
 }
