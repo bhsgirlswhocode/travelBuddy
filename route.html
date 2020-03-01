@@ -1,5 +1,6 @@
 <html lang="en">
 <head>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
     <meta charset="UTF-8">
     <link rel="stylesheet" href="bootstrap.css">
     <title>Route</title>
@@ -35,62 +36,122 @@
   </div>
 </div>
 
+
+<!--
   <div class="form-group">
-  <label class="col-form-label" for="inputDefault">Your Destination</label>
+  <label class="col-form-label" for="inputDefault">IDK</label>
   <input type="text" class="form-control" placeholder="Enter your destination" id="inputDefault">
 </div>
+-->
 
-<div id="googleMap" style="width:100%;height:400px;"></div>
+<div id="googleMap" style="width:100%;height:90px;"></div>
 
-<script>
-// function initMap() {
-//         var directionsService = new google.maps.DirectionsService();
-//         var directionsRenderer = new google.maps.DirectionsRenderer();
-//         var map = new google.maps.Map(document.getElementById('map'), {
-//           zoom: 7,
-//           center: {lat: 41.85, lng: -87.65}
-//         });
-//         directionsRenderer.setMap(map);
-//
-//         var onChangeHandler = function() {
-//           calculateAndDisplayRoute(directionsService, directionsRenderer);
-//         };
-//         document.getElementById('start').addEventListener('change', onChangeHandler);
-//         document.getElementById('end').addEventListener('change', onChangeHandler);
-//       }
-//
-//       function calculateAndDisplayRoute(directionsService, directionsRenderer) {
-//         directionsService.route(
-//             {
-//               origin: {query: document.getElementById('start').value},
-//               destination: {query: document.getElementById('end').value},
-//               travelMode: 'DRIVING'
-//             },
-//             function(response, status) {
-//               if (status === 'OK') {
-//                 directionsRenderer.setDirections(response);
-//               } else {
-//                 window.alert('Directions request failed due to ' + status);
-//               }
-//             });
-//       }
-//function DirectionsService() {
-//  route(request, callback)
-//}
-function myMap() {
-var mapProp= {
-  center:new google.maps.LatLng(36.778259,-119.417931),
-  zoom:5,
-};
-var map = new google.maps.Map(document.getElementById("googleMap"),mapProp);
-}
-</script>
+<style>
+      /* Always set the map height explicitly to define the size of the div
+       * element that contains the map. */
+      #map {
+        height: 100%;
+      }
+      /* Optional: Makes the sample page fill the window. */
+      html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+      #floating-panel {
+        position: absolute;
+        top: 330px;
+        left: 25%;
+        z-index: 5;
+        background-color: #fff;
+        padding: 1px;
+        border: 1px solid #999;
+        text-align: center;
+        font-family: 'Helvetica Neue','sans-serif';
+        line-height: 1px;
+        padding-left: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="floating-panel">
+    <b>Start: </b>
+    <select id="start">
+      <option value="san francisco, ca">San Fransisco</option>
+      <option value="st louis, mo">St Louis</option>
+      <option value="joplin, mo">Joplin, MO</option>
+      <option value="oklahoma city, ok">Oklahoma City</option>
+      <option value="amarillo, tx">Amarillo</option>
+      <option value="gallup, nm">Gallup, NM</option>
+      <option value="flagstaff, az">Flagstaff, AZ</option>
+      <option value="winona, az">Winona</option>
+      <option value="kingman, az">Kingman</option>
+      <option value="barstow, ca">Barstow</option>
+      <option value="san bernardino, ca">San Bernardino</option>
+      <option value="los angeles, ca">Los Angeles</option>
+    </select>
+    <b>End: </b>
+    <select id="end">
+      <option value="chicago, il">Chicago</option>
+      <option value="st louis, mo">St Louis</option>
+      <option value="joplin, mo">Joplin, MO</option>
+      <option value="oklahoma city, ok">Oklahoma City</option>
+      <option value="amarillo, tx">Amarillo</option>
+      <option value="gallup, nm">Gallup, NM</option>
+      <option value="flagstaff, az">Flagstaff, AZ</option>
+      <option value="winona, az">Winona</option>
+      <option value="kingman, az">Kingman</option>
+      <option value="barstow, ca">Barstow</option>
+      <option value="san bernardino, ca">San Bernardino</option>
+      <option value="los angeles, ca">Los Angeles</option>
+    </select>
+    </div>
+    <div id="map"></div>
+    <script>
+      function myMap() {
+        var directionsService = new google.maps.DirectionsService();
+        var directionsRenderer = new google.maps.DirectionsRenderer();
+        var map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 7,
+          center: {lat: 36, lng: -119.65}
+        });
+        directionsRenderer.setMap(map);
 
-<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDvJLoTi5AL6Gi-qx1MjQ5TQDVw9Onpk6Q&callback=myMap" type="text/javascript"></script>
-<!--<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBAqjI81389wnc1-vIlqVCqvVe3OOI2fhs&callback=myMap"></script>-->
-<div class="alert alert-dismissible alert-secondary">
-  <button type="button" class="close" data-dismiss="alert">&times;</button>
-  <strong>Alert!</strong> There are some rest stops along your route <a href="#" class="alert-link">reroute?</a>
-</div>
-</body>
+        var onChangeHandler = function() {
+          calculateAndDisplayRoute(directionsService, directionsRenderer);
+        };
+        document.getElementById('start').addEventListener('change', onChangeHandler);
+        document.getElementById('end').addEventListener('change', onChangeHandler);
+      }
+
+      var marker = new google.maps.Marker({
+        position:myCenter,
+        icon:"badge badge-secondary"
+      });
+
+marker.setMap(map);
+
+      function calculateAndDisplayRoute(directionsService, directionsRenderer) {
+        directionsService.route(
+            {
+              origin: {query: document.getElementById('start').value},
+              destination: {query: document.getElementById('end').value},
+              travelMode: 'DRIVING'
+            },
+            function(response, status) {
+              if (status === 'OK') {
+                directionsRenderer.setDirections(response);
+              } else {
+                window.alert('Directions request failed due to ' + status);
+              }
+            });
+      }
+    </script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDvJLoTi5AL6Gi-qx1MjQ5TQDVw9Onpk6Q&callback=myMap" type="text/javascript"></script>
+    <div class="alert alert-dismissible alert-secondary">
+      <button type="button" class="close" data-dismiss="alert">&times;</button>
+      <strong>Alert!</strong> There are some rest stops along your route <a href="#" class="alert-link">-- reroute?</a>
+    </div>
+    </script>
+  </body>
 </html>
