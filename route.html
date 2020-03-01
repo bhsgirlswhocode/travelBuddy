@@ -26,7 +26,19 @@
       </ul>
     </div>
   </nav>
-  <br>
+  <br></br>
+  <div class="card bg-light mb-3" style="max-width: 100rem;">
+  <div class="card-header">Route Planner</div>
+  <div class="card-body">
+    <h4 class="card-title">Gas Stations, Rest Stops, and More!</h4>
+    <p class="card-text">Enter in your destination and the route creator will do the rest! Your information will be used to determine the most efficient and cost-effective path for your preferences.</p>
+  </div>
+</div>
+
+  <div class="form-group">
+  <label class="col-form-label" for="inputDefault">Your Destination</label>
+  <input type="text" class="form-control" placeholder="Enter your destination" id="inputDefault">
+</div>
 
 <div id="googleMap" style="width:100%;height:400px;"></div>
 
@@ -76,6 +88,9 @@ var map = new google.maps.Map(document.getElementById("googleMap"),mapProp);
 
 <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDvJLoTi5AL6Gi-qx1MjQ5TQDVw9Onpk6Q&callback=myMap" type="text/javascript"></script>
 <!--<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBAqjI81389wnc1-vIlqVCqvVe3OOI2fhs&callback=myMap"></script>-->
-
+<div class="alert alert-dismissible alert-secondary">
+  <button type="button" class="close" data-dismiss="alert">&times;</button>
+  <strong>Alert!</strong> There are some rest stops along your route <a href="#" class="alert-link">reroute?</a>
+</div>
 </body>
 </html>
