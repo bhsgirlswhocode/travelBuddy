@@ -31,9 +31,11 @@
         </nav>
         <br>
         <!-- PAGE CONTENT -->
-        <div class="w3-main" style="margin: 8rem; margin-top: 3.75em; width: 400px;">
-
-          <div class="w3-container" id="Car Information" style="margin-top:75px">
+        <div class="w3-main" style="margin: auto; width: 750px;">
+          <div>
+          <span style="display: inline-block; padding-right: 5px">
+          <div class="jumbotron" id="Car Information" style="margin-top:25px">
+            <h1 class="display-4">Your car</h1>
             <div class="form-group row" style="width: 20em">
               <label for="staticEmail" class="col-sm-2 col-form-label">Car Make:</label>
               <div class="col-sm-10">
@@ -45,7 +47,14 @@
               <label for="staticEmail" class="col-sm-2 col-form-label">Car Model:</label>
               <div class="col-sm-10">
                 <input type="text" class="form-control" id="carModel" placeholder="Model">
-                <div class="invalid-feedback" style="visibility: hidden;" id="modelErrorMessage">Sorry, we could not find your car make.</div>
+                <div class="invalid-feedback" style="visibility: hidden;" id="modelErrorMessage">Sorry, we could not find your car model.</div>
+              </div>
+            </div>
+            <div class="form-group row" style="width: 20em">
+              <label for="staticEmail" class="col-sm-2 col-form-label">Car Year:</label>
+              <div class="col-sm-10">
+                <input type="text" class="form-control" id="carYear" placeholder="Year">
+                <div class="invalid-feedback" style="visibility: hidden;" id="yearErrorMessage">Sorry, we could not find your car year.</div>
               </div>
             </div>
             <div class="form-group row" style="width: 20em">
@@ -70,6 +79,27 @@
     <div class="form-group">
 
       </div>
+    </div>
+    </span>
+    <span style="display: inline-block; padding-right: 5px">
+      <div class="jumbotron" id="Trip Information" style="margin-top:25px">
+        <h1 class="display-4">Your trip</h1>
+        <div class="form-group row" style="width: 20em">
+          <!-- Eventually make this searchable? -->
+          <label for="staticEmail" class="col-sm-2 col-form-label">Starting Point:</label>
+          <div class="col-sm-10">
+            <input type="text" class="form-control" id="startingPoint" placeholder="Starting Point">
+          </div>
+        </div>
+        <div class="form-group row" style="width: 20em">
+          <label for="staticEmail" class="col-sm-2 col-form-label">Destination:</label>
+          <div class="col-sm-10">
+            <input type="text" class="form-control" id="destination" placeholder="Destination">
+          </div>
+        </div>
+
+    </span>
+  </div>
 
 
 </body>
@@ -97,6 +127,8 @@ int gasInTank;
     else if (mpg == -3)
     {
       mpg = 0;
+      document.getElementById("carYear").classList.add('is-invalid');
+      document.getElementById("YearErrorMessage").style.visibility = "visible";
     }
     else {
       //TODO
