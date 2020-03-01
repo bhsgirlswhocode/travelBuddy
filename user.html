@@ -1,14 +1,154 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" href="bootstrap.css">
     <title>Personalize</title>
 </head>
 <body>
-<ul>
-    <li><a href="index.html">Home</a></li>
-    <li><a href="route.html">Route</a></li>
-    <li><a class="active" href="user.html">Personalize</a></li>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <a class="navbar-brand" href="index.html">Travel Buddy</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
 
-</ul>
+    <div class="collapse navbar-collapse" id="navbarColor01">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="./route.html">Route</a>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link" href="user.html">Personalize</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+  <br>
+</span>
+<div class="w3-main" style="margin: auto; width: 750px;">
+  <div>
+  <span style="display: inline-block; padding-right: 5px">
+  <div class="jumbotron" id="Car Information" style="margin-top:25px">
+    <h1 class="display-4">Your car</h1>
+    <div class="form-group row" style="width: 20em">
+      <label for="staticEmail" class="col-sm-2 col-form-label">Car Make:</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" id="carMake" placeholder="Make">
+        <div class="invalid-feedback" style="visibility: hidden;" id="makeErrorMessage">Sorry, we could not find your car make.</div>
+      </div>
+    </div>
+    <div class="form-group row" style="width: 20em">
+      <label for="staticEmail" class="col-sm-2 col-form-label">Car Model:</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" id="carModel" placeholder="Model">
+        <div class="invalid-feedback" style="visibility: hidden;" id="modelErrorMessage">Sorry, we could not find your car model.</div>
+      </div>
+    </div>
+    <div class="form-group row" style="width: 20em">
+      <label for="staticEmail" class="col-sm-2 col-form-label">Car Year:</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" id="carYear" placeholder="Year">
+        <div class="invalid-feedback" style="visibility: hidden;" id="yearErrorMessage">Sorry, we could not find your car year.</div>
+      </div>
+    </div>
+    <div class="form-group row" style="width: 20em">
+      <label for="staticEmail" class="col-sm-2 col-form-label">Fuel Capacity:</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" id="fuelCapacity" placeholder="Capacity">
+      </div>
+  </div>
+
+  <div class="form-group">
+<label for="exampleSelect1">Fuel Level</label>
+  <select class="form-control" id="exampleSelect1">
+<!--  <placeholder = "please choose your current fuel level"></placeholder> -->
+<option>1/8</option>
+<option>1/4</option>
+<option>1/2</option>
+<option>5/8</option>
+<option>3/4</option>
+<option>full</option>
+</select>
+</div>
+<div class="form-group">
+
+</div>
+</div>
+</span>
+</div>
+
+
+</body>
+
+<script>
+int gasStops = 0;
+int mpg = 0;
+int gasInTank;
+
+function findMPG = new function (make, model, year)
+{
+mpg = CarSearcher.findMPG(make, model, year);
+if (mpg == -1)
+{
+mpg = 0;
+document.getElementById("carMake").classList.add('is-invalid');
+document.getElementById("makeErrorMessage").style.visibility = "visible";
+}
+else if (mpg == -2)
+{
+mpg = 0;
+document.getElementById("carModel").classList.add('is-invalid');
+document.getElementById("modelErrorMessage").style.visibility = "visible";
+}
+else if (mpg == -3)
+{
+mpg = 0;
+document.getElementById("carYear").classList.add('is-invalid');
+document.getElementById("YearErrorMessage").style.visibility = "visible";
+}
+else {
+//TODO
+}
+// called when 'Find My Car' button hit
+/*
+* parse CSV and find the mpg of the car
+* if car not found, show block that says that
+* if found, show car's mpg and how many gasStops are needed (best case)
+* calculate gasStops and update variable
+* "If this does not seem like your car's mpg, enter manually and hit 'update' (another function)"
+*/
+}
+
+function manualMPG = new function(entered)
+{
+mpg = entered;
+// show car's mpg and how many gasStops are needed (best case)
+// calculate gasStops and update variable
+}
+function theGasStops = new function ()
+{
+return gasStops;
+}
+</script>
+<span style="display: inline-block; padding-right: 5px">
+  <div class="jumbotron" id="Trip Information" style="margin-top:25px">
+    <h1 class="display-4">Your trip</h1>
+    <div class="form-group row" style="width: 20em">
+      <!-- Eventually make this searchable? -->
+      <label for="staticEmail" class="col-sm-2 col-form-label">Starting Point:</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" id="startingPoint" placeholder="Starting Point">
+      </div>
+    </div>
+    <div class="form-group row" style="width: 20em">
+      <label for="staticEmail" class="col-sm-2 col-form-label">Destination:</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" id="destination" placeholder="Destination">
+      </div>
+    </div>
+
+</span>
 </body>
 </html>
